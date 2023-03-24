@@ -12,6 +12,7 @@ dependencies:
   firebase_auth_web: ^5.2.10
   firebase_core: ^2.8.0
   firebase_storage: ^11.0.16
+  vibration: ^1.7.5
 
   flutter:
     sdk: flutter

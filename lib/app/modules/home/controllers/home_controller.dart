@@ -11,12 +11,32 @@ import 'package:kavachApp/app/widgets/toast/custom_toast.dart';
 import 'package:kavachApp/company_data.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
+import 'package:kavachApp/app/controllers/presence_controller.dart';
+
 class HomeController extends GetxController {
   RxBool isLoading = false.obs;
   RxString officeDistance = "-".obs;
   FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   Timer? timer;
+
+  final presenceController = Get.find<PresenceController>();
+  RxInt pageIndex = 0.obs;
+
+  void changePage(int index) async {
+    pageIndex.value = index;
+    switch (index) {
+      case 1:
+        presenceController.presence();
+        break;
+      case 2:
+        Get.offAllNamed(Routes.PROFILE);
+        break;
+      default:
+        Get.offAllNamed(Routes.HOME);
+        break;
+    }
+  }
 
   @override
   void onInit() {

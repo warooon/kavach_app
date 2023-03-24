@@ -3,8 +3,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:kavachApp/app/controllers/page_index_controller.dart';
 import 'package:kavachApp/app/style/app_color.dart';
+import 'package:vibration/vibration.dart';
 
 class CustomBottomNavigationBar extends GetView<PageIndexController> {
+  changefunc() {
+    controller.changePage(1);
+    Vibration.vibrate(duration: 200);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -108,7 +114,7 @@ class CustomBottomNavigationBar extends GetView<PageIndexController> {
                 width: 64,
                 height: 64,
                 child: FloatingActionButton(
-                  onPressed: () => controller.changePage(1),
+                  onPressed: () => changefunc(),
                   elevation: 0,
                   child: (controller.presenceController.isLoading.isFalse)
                       ? SvgPicture.asset(
