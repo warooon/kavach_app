@@ -18,7 +18,7 @@ class PresenceTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
             width: 1,
-            color: AppColor.primaryExtraSoft,
+            color: Colors.black,
           ),
         ),
         padding: EdgeInsets.only(left: 24, top: 20, right: 29, bottom: 20),

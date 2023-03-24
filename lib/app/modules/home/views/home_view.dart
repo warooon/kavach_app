@@ -7,6 +7,7 @@ import 'package:kavachApp/app/style/app_color.dart';
 import 'package:kavachApp/app/widgets/custom_bottom_navigation_bar.dart';
 import 'package:kavachApp/app/widgets/presence_card.dart';
 import 'package:kavachApp/app/widgets/presence_tile.dart';
+import 'package:kavachApp/app/controllers/page_index_controller.dart';
 // import 'package:kavachApp/app/widgets/toast/custom_toast.dart';
 // import 'package:kavachApp/company_data.dart';
 
@@ -45,11 +46,15 @@ class HomeView extends GetView<HomeController> {
                             child: Container(
                               width: 42,
                               height: 42,
-                              child: Image.network(
-                                (user["avatar"] == null || user['avatar'] == "")
-                                    ? "https://ui-avatars.com/api/?name=${user['name']}/"
-                                    : user['avatar'],
-                                fit: BoxFit.cover,
+                              child: GestureDetector(
+                                onTap: () => controller.changePage(2),
+                                child: Image.network(
+                                  (user["avatar"] == null ||
+                                          user['avatar'] == "")
+                                      ? "https://ui-avatars.com/api/?name=${user['name']}/"
+                                      : user['avatar'],
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ),
@@ -58,11 +63,11 @@ class HomeView extends GetView<HomeController> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "welcome back",
+                                "Welcome Back!",
                                 style: TextStyle(
-                                  fontSize: 12,
-                                  color: AppColor.secondarySoft,
-                                ),
+                                    fontSize: 12,
+                                    color: AppColor.secondarySoft,
+                                    fontWeight: FontWeight.w700),
                               ),
                               SizedBox(height: 4),
                               Text(

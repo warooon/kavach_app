@@ -12,10 +12,10 @@ class PresenceCard extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.only(left: 24, top: 24, right: 24, bottom: 16),
       decoration: BoxDecoration(
-        color: AppColor.primary,
+        color: Colors.orange,
         borderRadius: BorderRadius.circular(8),
         image: DecorationImage(
-          image: AssetImage('assets/images/pattern-1.png'),
+          image: AssetImage('assets/images/pattern-.png'),
           fit: BoxFit.cover,
         ),
       ),
@@ -50,7 +50,7 @@ class PresenceCard extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
             decoration: BoxDecoration(
-              color: AppColor.primarySoft,
+              color: Colors.grey[400],
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
