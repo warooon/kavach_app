@@ -72,7 +72,7 @@ class ProfileView extends GetView<ProfileController> {
                         MenuTile(
                           title: 'Update Profile',
                           icon: SvgPicture.asset(
-                            'assets/icons/profile-1.svg',
+                            'assets/icons/profile.svg',
                           ),
                           onTap: () => Get.toNamed(Routes.UPDATE_POFILE,
                               arguments: userData),
@@ -80,8 +80,8 @@ class ProfileView extends GetView<ProfileController> {
                         (userData["role"] == "admin")
                             ? MenuTile(
                                 title: 'Add Officer',
-                                icon: SvgPicture.asset(
-                                  'assets/icons/people.svg',
+                                icon: Icon(
+                                  Icons.people_alt_outlined,
                                 ),
                                 onTap: () => Get.toNamed(Routes.ADD_EMPLOYEE),
                               )
@@ -89,17 +89,15 @@ class ProfileView extends GetView<ProfileController> {
                         (userData["role"] == "admin")
                             ? MenuTile(
                                 title: "Show Officers",
-                                icon: SvgPicture.asset(
-                                  'assets/icons/setting-2036104.svg',
+                                icon: Icon(
+                                  Icons.account_tree_outlined,
                                 ),
                                 onTap: () => Get.toNamed(Routes.SHOW_OFFICER),
                               )
                             : SizedBox(),
                         MenuTile(
                           title: 'Change Password',
-                          icon: SvgPicture.asset(
-                            'assets/icons/password.svg',
-                          ),
+                          icon: Icon(Icons.lock_outline_sharp),
                           onTap: () => Get.toNamed(Routes.CHANGE_PASSWORD),
                         ),
                         MenuTile(

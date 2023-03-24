@@ -20,6 +20,8 @@ import 'package:kavachApp/app/modules/profile/bindings/profile_binding.dart';
 import 'package:kavachApp/app/modules/profile/views/profile_view.dart';
 import 'package:kavachApp/app/modules/update_pofile/bindings/update_pofile_binding.dart';
 import 'package:kavachApp/app/modules/update_pofile/views/update_pofile_view.dart';
+import 'package:kavachApp/app/modules/show-officer/views/show_officer_view.dart';
+import 'package:kavachApp/app/modules/show-officer/bindings/show_officer_binding.dart';
 
 part 'app_routes.dart';
 
@@ -81,5 +83,10 @@ class AppPages {
       page: () => AllPresenceView(),
       binding: AllPresenceBinding(),
     ),
+    GetPage(
+      name: _Paths.SHOW_OFFICER,
+      page: () => ShowOfficerView(),
+      binding: ShowOfficerBinding(),
+    )
   ];
 }
