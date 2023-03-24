@@ -14,7 +14,7 @@ class ShowOfficerView extends GetView<ShowOfficerController> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Presence Detail',
+          'Presence Details',
           style: TextStyle(
             color: AppColor.secondary,
             fontSize: 14,
