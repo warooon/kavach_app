@@ -128,7 +128,7 @@ class HomeView extends GetView<HomeController> {
                                   Container(
                                     margin: EdgeInsets.only(bottom: 6),
                                     child: Text(
-                                      'Distance from office',
+                                      'Distance from Posting',
                                       style: TextStyle(fontSize: 10),
                                     ),
                                   ),

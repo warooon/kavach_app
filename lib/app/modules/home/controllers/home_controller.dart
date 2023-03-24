@@ -9,6 +9,7 @@ import 'package:maps_launcher/maps_launcher.dart';
 import 'package:kavachApp/app/routes/app_pages.dart';
 import 'package:kavachApp/app/widgets/toast/custom_toast.dart';
 import 'package:kavachApp/company_data.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 class HomeController extends GetxController {
   RxBool isLoading = false.obs;
@@ -20,7 +21,7 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    timer = Timer.periodic(const Duration(seconds: 10), (timer) {
+    timer = Timer.periodic(const Duration(seconds: 3), (timer) {
       if (Get.currentRoute == Routes.HOME) {
         getDistanceToOffice().then((value) {
           officeDistance.value = value;
@@ -40,6 +41,8 @@ class HomeController extends GetxController {
     }
   }
 
+  AlertFunction() {}
+
   Future<String> getDistanceToOffice() async {
     print('Called get distance to office');
     Map<String, dynamic> determinePosition = await _determinePosition();
@@ -51,6 +54,7 @@ class HomeController extends GetxController {
           position.latitude,
           position.longitude);
       if (distance > 1000) {
+        //AlertFunction();
         return "${(distance / 1000).toStringAsFixed(2)}km";
       } else {
         return "${distance.toStringAsFixed(2)}m";
