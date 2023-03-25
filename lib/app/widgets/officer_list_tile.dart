@@ -15,11 +15,12 @@ class OfficerListTile extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
+          color: Colors.teal[100],
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(
-            width: 1,
-            color: Colors.black,
-          ),
+          // border: Border.all(
+          //   width: 1,
+          //   color: Colors.black,
+          // ),
         ),
         padding: EdgeInsets.only(left: 24, top: 5, right: 29, bottom: 20),
         child: Row(

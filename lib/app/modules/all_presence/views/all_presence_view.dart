@@ -41,8 +41,10 @@ class AllPresenceView extends GetView<AllPresenceController> {
                       height: 372,
                       child: SfDateRangePicker(
                         headerHeight: 50,
-                        headerStyle: DateRangePickerHeaderStyle(textAlign: TextAlign.center),
-                        monthViewSettings: DateRangePickerMonthViewSettings(firstDayOfWeek: 1),
+                        headerStyle: DateRangePickerHeaderStyle(
+                            textAlign: TextAlign.center),
+                        monthViewSettings:
+                            DateRangePickerMonthViewSettings(firstDayOfWeek: 1),
                         selectionMode: DateRangePickerSelectionMode.range,
                         selectionColor: AppColor.primary,
                         rangeSelectionColor: AppColor.primary.withOpacity(0.2),
@@ -53,7 +55,8 @@ class AllPresenceView extends GetView<AllPresenceController> {
                           if (data != null) {
                             PickerDateRange range = data as PickerDateRange;
                             if (range.endDate != null) {
-                              controller.pickDate(range.startDate!, range.endDate!);
+                              controller.pickDate(
+                                  range.startDate!, range.endDate!);
                             }
                           }
                           //else skip
@@ -66,6 +69,7 @@ class AllPresenceView extends GetView<AllPresenceController> {
               child: SvgPicture.asset('assets/icons/filter.svg'),
               style: ElevatedButton.styleFrom(
                 elevation: 0,
+                backgroundColor: Colors.teal[400],
                 padding: EdgeInsets.zero,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),

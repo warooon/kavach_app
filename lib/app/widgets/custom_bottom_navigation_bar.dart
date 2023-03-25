@@ -114,6 +114,7 @@ class CustomBottomNavigationBar extends GetView<PageIndexController> {
                 width: 64,
                 height: 64,
                 child: FloatingActionButton(
+                  backgroundColor: Colors.teal[400],
                   onPressed: () => changefunc(),
                   elevation: 0,
                   child: (controller.presenceController.isLoading.isFalse)

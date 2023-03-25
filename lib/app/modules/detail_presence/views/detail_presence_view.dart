@@ -41,12 +41,12 @@ class DetailPresenceView extends GetView<DetailPresenceController> {
         padding: EdgeInsets.all(20),
         physics: BouncingScrollPhysics(),
         children: [
-          // check in ============================================
+          // check in
           Container(
             width: MediaQuery.of(context).size.width,
             padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
             decoration: BoxDecoration(
-              color: AppColor.primary,
+              color: Colors.teal[400],
               borderRadius: BorderRadius.circular(8),
               border: Border.all(color: AppColor.secondaryExtraSoft, width: 1),
             ),
@@ -109,12 +109,12 @@ class DetailPresenceView extends GetView<DetailPresenceController> {
             ),
           ),
           SizedBox(height: 24),
-          // check out ===========================================
+          // check out
           Container(
             width: MediaQuery.of(context).size.width,
             padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Colors.teal[100],
               borderRadius: BorderRadius.circular(8),
               border: Border.all(color: AppColor.secondaryExtraSoft, width: 1),
             ),

@@ -46,14 +46,3 @@ void main() async {
     ),
   );
 }
-
-// class splash extends StatelessWidget {
-//   const splash({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return AnimatedSplashScreen(
-//         splash: Lottie.asset('assets/610-indian-flag.json'),
-//         nextScreen: );
-//   }
-// }
