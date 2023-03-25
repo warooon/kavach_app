@@ -12,9 +12,7 @@ class PresenceCard extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.only(left: 24, top: 24, right: 24, bottom: 16),
       decoration: BoxDecoration(
-
         color: Colors.teal[400],
-
         borderRadius: BorderRadius.circular(8),
         image: DecorationImage(
           image: AssetImage('assets/images/pattern-1.png'),

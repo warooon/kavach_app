@@ -26,7 +26,7 @@ class CustomInput extends StatefulWidget {
 class _CustomInputState extends State<CustomInput> {
   @override
   Widget build(BuildContext context) {
-    print("builded");
+    print("built");
     return Material(
       color: Colors.white,
       child: Container(
@@ -34,7 +34,9 @@ class _CustomInputState extends State<CustomInput> {
         padding: EdgeInsets.only(left: 14, right: 14, top: 4),
         margin: widget.margin,
         decoration: BoxDecoration(
-          color: (widget.disabled == false) ? Colors.transparent : AppColor.primaryExtraSoft,
+          color: (widget.disabled == false)
+              ? Colors.transparent
+              : Colors.teal[100],
           borderRadius: BorderRadius.circular(8),
           border: Border.all(width: 1, color: AppColor.secondaryExtraSoft),
         ),
