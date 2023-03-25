@@ -26,7 +26,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.HOME;
+  static const INITIAL = Routes.SPLASH;
 
   static final routes = [
     GetPage(
@@ -78,6 +78,11 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.ALL_PRESENCE,
+      page: () => AllPresenceView(),
+      binding: AllPresenceBinding(),
+    ),
+    GetPage(
+      name: _Paths.SPLASH,
       page: () => AllPresenceView(),
       binding: AllPresenceBinding(),
     ),

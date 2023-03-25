@@ -124,7 +124,7 @@ class HomeView extends GetView<HomeController> {
                             child: Container(
                               height: 84,
                               decoration: BoxDecoration(
-                                color: AppColor.primaryExtraSoft,
+                                color: Colors.teal[100],
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               child: Column(
@@ -159,7 +159,7 @@ class HomeView extends GetView<HomeController> {
                                 height: 84,
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
-                                  color: AppColor.primaryExtraSoft,
+                                  color: Colors.teal[100],
                                   borderRadius: BorderRadius.circular(8),
                                   image: DecorationImage(
                                     image: AssetImage('assets/images/map.JPG'),
