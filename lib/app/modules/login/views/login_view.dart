@@ -10,47 +10,78 @@ class LoginView extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.primary,
+      backgroundColor: Colors.white,
       body: ListView(
         shrinkWrap: true,
         children: [
           Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 120),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "SURAKSHA",
+                        style: TextStyle(
+                          fontSize: 50,
+                          color: Colors.black,
+                          fontFamily: 'poppins',
+                          height: 150 / 100,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [Text("an initiative by Bro-Code")],
+                )
+              ],
+            ),
             height: MediaQuery.of(context).size.height * 35 / 100,
             width: MediaQuery.of(context).size.width,
-            padding: EdgeInsets.only(left: 32),
+            //padding: EdgeInsets.only(left: 20),
             decoration: BoxDecoration(
-              gradient: AppColor.primaryGradient,
+              //gradient: AppColor.primaryGradient,
+              color: Colors.teal[400],
               image: DecorationImage(
-                image: AssetImage('assets/images/pattern-1-1.png'),
+                image: AssetImage(
+                    'assets/images/abstract-pattern-design_1053-534.avif'),
                 fit: BoxFit.cover,
               ),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Suraksha",
-                  style: TextStyle(
-                    fontSize: 28,
-                    color: Colors.white,
-                    fontFamily: 'poppins',
-                    height: 150 / 100,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  "by Team Bro-Code",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
+            // child: Column(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   crossAxisAlignment: CrossAxisAlignment.start,
+            //   children: [
+            //     SizedBox(
+            //       child: Text(
+            //         "Suraksha",
+            //         style: TextStyle(
+            //           fontSize: 50,
+            //           color: Colors.black,
+            //           fontFamily: 'poppins',
+            //           height: 150 / 100,
+            //           fontWeight: FontWeight.w600,
+            //         ),
+            //       ),
+            //     ),
+            //     SizedBox(height: 10),
+            //     Text(
+            //       "an inititative by Bro-Code",
+            //       style: TextStyle(color: Colors.black),
+            //     ),
+            //   ],
+            // ),
           ),
           Container(
             height: MediaQuery.of(context).size.height * 65 / 100,
             width: MediaQuery.of(context).size.width,
-            color: Colors.white,
+            color: Colors.grey[100],
             padding: EdgeInsets.only(left: 20, right: 20, top: 36, bottom: 84),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -59,7 +90,7 @@ class LoginView extends GetView<LoginController> {
                 Container(
                   margin: EdgeInsets.only(bottom: 24),
                   child: Text(
-                    'Log in',
+                    'Login',
                     style: TextStyle(
                       fontSize: 18,
                       fontFamily: 'poppins',
@@ -91,7 +122,7 @@ class LoginView extends GetView<LoginController> {
                       ),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       border: InputBorder.none,
-                      hintText: "youremail@email.com",
+                      hintText: "example@domain.com",
                       hintStyle: TextStyle(
                         fontSize: 14,
                         fontFamily: 'poppins',
@@ -130,8 +161,8 @@ class LoginView extends GetView<LoginController> {
                           hintText: "********",
                           suffixIcon: IconButton(
                             icon: (controller.obsecureText != false)
-                                ? SvgPicture.asset('assets/icons/show.svg')
-                                : SvgPicture.asset('assets/icons/hide.svg'),
+                                ? SvgPicture.asset('assets/icons/hide.svg')
+                                : SvgPicture.asset('assets/icons/show.svg'),
                             onPressed: () {
                               controller.obsecureText.value =
                                   !(controller.obsecureText.value);
@@ -169,6 +200,7 @@ class LoginView extends GetView<LoginController> {
                       ),
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 18),
+                        backgroundColor: Colors.teal[400],
                         elevation: 0,
                         primary: AppColor.primary,
                         shape: RoundedRectangleBorder(

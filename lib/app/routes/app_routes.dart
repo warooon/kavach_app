@@ -14,7 +14,9 @@ abstract class Routes {
   static const ADD_EMPLOYEE = _Paths.ADD_EMPLOYEE;
   static const CHANGE_PASSWORD = _Paths.CHANGE_PASSWORD;
   static const ALL_PRESENCE = _Paths.ALL_PRESENCE;
+
   static const SHOW_OFFICER = _Paths.SHOW_OFFICER;
+
 }
 
 abstract class _Paths {
@@ -29,4 +31,5 @@ abstract class _Paths {
   static const CHANGE_PASSWORD = '/change-password';
   static const ALL_PRESENCE = '/all-presence';
   static const SHOW_OFFICER = '/show-officer';
+
 }

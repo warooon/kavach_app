@@ -12,7 +12,9 @@ class PresenceCard extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.only(left: 24, top: 24, right: 24, bottom: 16),
       decoration: BoxDecoration(
-        color: AppColor.primary,
+
+        color: Colors.teal[400],
+
         borderRadius: BorderRadius.circular(8),
         image: DecorationImage(
           image: AssetImage('assets/images/pattern-1.png'),
@@ -26,7 +28,7 @@ class PresenceCard extends StatelessWidget {
           Text(
             userData["job"],
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontFamily: 'poppins',
               fontWeight: FontWeight.w500,
             ),
@@ -37,7 +39,7 @@ class PresenceCard extends StatelessWidget {
             child: Text(
               userData["employee_id"],
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontFamily: 'poppins',
                 fontSize: 18,
                 fontWeight: FontWeight.w700,
@@ -50,7 +52,7 @@ class PresenceCard extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
             decoration: BoxDecoration(
-              color: Colors.grey[400],
+              color: Colors.teal[200],
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -65,7 +67,7 @@ class PresenceCard extends StatelessWidget {
                           "check in",
                           style: TextStyle(
                             fontSize: 12,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -76,7 +78,7 @@ class PresenceCard extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                       ),
                     ],
@@ -85,7 +87,7 @@ class PresenceCard extends StatelessWidget {
                 Container(
                   width: 1.5,
                   height: 24,
-                  color: Colors.white,
+                  color: Colors.teal[400],
                 ),
                 // check out
                 Expanded(
@@ -97,7 +99,7 @@ class PresenceCard extends StatelessWidget {
                           "check out",
                           style: TextStyle(
                             fontSize: 12,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -108,7 +110,7 @@ class PresenceCard extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                       ),
                     ],
