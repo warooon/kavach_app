@@ -15,4 +15,5 @@ class AppColor {
   static Color error = Color(0xFFD00E0E);
   static Color success = Color(0xFF16AE26);
   static Color warning = Color(0xFFEB8600);
+  static Color black = Color(0x0000007B);
 }

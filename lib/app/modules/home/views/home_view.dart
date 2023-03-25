@@ -7,6 +7,7 @@ import 'package:kavachApp/app/style/app_color.dart';
 import 'package:kavachApp/app/widgets/custom_bottom_navigation_bar.dart';
 import 'package:kavachApp/app/widgets/presence_card.dart';
 import 'package:kavachApp/app/widgets/presence_tile.dart';
+import 'package:kavachApp/app/controllers/page_index_controller.dart';
 // import 'package:kavachApp/app/widgets/toast/custom_toast.dart';
 // import 'package:kavachApp/company_data.dart';
 
@@ -45,11 +46,15 @@ class HomeView extends GetView<HomeController> {
                             child: Container(
                               width: 42,
                               height: 42,
-                              child: Image.network(
-                                (user["avatar"] == null || user['avatar'] == "")
-                                    ? "https://ui-avatars.com/api/?name=${user['name']}/"
-                                    : user['avatar'],
-                                fit: BoxFit.cover,
+                              child: GestureDetector(
+                                onTap: () => controller.changePage(2),
+                                child: Image.network(
+                                  (user["avatar"] == null ||
+                                          user['avatar'] == "")
+                                      ? "https://ui-avatars.com/api/?name=${user['name']}/"
+                                      : user['avatar'],
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ),
@@ -58,11 +63,11 @@ class HomeView extends GetView<HomeController> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "welcome back",
+                                "Welcome Back!",
                                 style: TextStyle(
-                                  fontSize: 12,
-                                  color: AppColor.secondarySoft,
-                                ),
+                                    fontSize: 12,
+                                    color: AppColor.secondarySoft,
+                                    fontWeight: FontWeight.w700),
                               ),
                               SizedBox(height: 4),
                               Text(
@@ -81,7 +86,6 @@ class HomeView extends GetView<HomeController> {
                     StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
                         stream: controller.streamTodayPresence(),
                         builder: (context, snapshot) {
-                          // #TODO: make skeleton
                           switch (snapshot.connectionState) {
                             case ConnectionState.waiting:
                               return Center(child: CircularProgressIndicator());
@@ -119,7 +123,7 @@ class HomeView extends GetView<HomeController> {
                             child: Container(
                               height: 84,
                               decoration: BoxDecoration(
-                                color: AppColor.primaryExtraSoft,
+                                color: Colors.teal[100],
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               child: Column(
@@ -154,7 +158,7 @@ class HomeView extends GetView<HomeController> {
                                 height: 84,
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
-                                  color: AppColor.primaryExtraSoft,
+                                  color: Colors.teal[100],
                                   borderRadius: BorderRadius.circular(8),
                                   image: DecorationImage(
                                     image: AssetImage('assets/images/map.JPG'),

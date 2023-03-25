@@ -10,60 +10,67 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.primary,
-      appBar: AppBar(
-        automaticallyImplyLeading: true,
-        leading: IconButton(
-          icon: SvgPicture.asset(
-            'assets/icons/arrow-left.svg',
-            color: Colors.white,
-          ),
-          onPressed: () => Get.back(),
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      extendBodyBehindAppBar: true,
+      backgroundColor: Colors.white,
+      // appBar: AppBar(
+      //   automaticallyImplyLeading: true,
+      //   leading: IconButton(
+      //     icon: SvgPicture.asset(
+      //       'assets/icons/arrow-left.svg',
+      //       color: Colors.white,
+      //     ),
+      //     onPressed: () => Get.back(),
+      //   ),
+      //   backgroundColor: Colors.transparent,
+      //   elevation: 0,
+      // ),
+      //extendBodyBehindAppBar: true,
       body: ListView(
         shrinkWrap: true,
         children: [
           Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 120),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "SURAKSHA",
+                        style: TextStyle(
+                          fontSize: 50,
+                          color: Colors.black,
+                          fontFamily: 'poppins',
+                          height: 150 / 100,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [Text("an initiative by Bro-Code")],
+                )
+              ],
+            ),
             height: MediaQuery.of(context).size.height * 35 / 100,
             width: MediaQuery.of(context).size.width,
-            padding: EdgeInsets.only(left: 32),
+            //padding: EdgeInsets.only(left: 32),
             decoration: BoxDecoration(
               gradient: AppColor.primaryGradient,
               image: DecorationImage(
-                image: AssetImage('assets/images/pattern-1-1.png'),
+                image: AssetImage(
+                    'assets/images/abstract-pattern-design_1053-534.avif'),
                 fit: BoxFit.cover,
               ),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Open Source\nPresence App",
-                  style: TextStyle(
-                    fontSize: 28,
-                    color: Colors.white,
-                    fontFamily: 'poppins',
-                    height: 150 / 100,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  "by github.com/mrezkys",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ],
             ),
           ),
           Container(
             height: MediaQuery.of(context).size.height * 65 / 100,
             width: MediaQuery.of(context).size.width,
-            color: Colors.white,
+            color: Colors.grey[100],
             padding: EdgeInsets.only(left: 20, right: 20, top: 36, bottom: 84),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -84,7 +91,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                       ),
                       SizedBox(height: 8),
                       Text(
-                        "We will send password reset link to\nyour email.",
+                        "We will send the password reset link to\nyour email.",
                         style: TextStyle(
                           color: AppColor.secondarySoft,
                           height: 150 / 100,
@@ -100,7 +107,8 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(width: 1, color: AppColor.secondaryExtraSoft),
+                    border: Border.all(
+                        width: 1, color: AppColor.secondaryExtraSoft),
                   ),
                   child: TextField(
                     style: TextStyle(fontSize: 14, fontFamily: 'poppins'),
@@ -116,7 +124,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                       ),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       border: InputBorder.none,
-                      hintText: "youremail@email.com",
+                      hintText: "example@domain.com",
                       hintStyle: TextStyle(
                         fontSize: 14,
                         fontFamily: 'poppins',
@@ -136,7 +144,9 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                         }
                       },
                       child: Text(
-                        (controller.isLoading.isFalse) ? 'Send to email' : 'Loading...',
+                        (controller.isLoading.isFalse)
+                            ? 'Send Link'
+                            : 'Loading...',
                         style: TextStyle(
                           fontSize: 16,
                           fontFamily: 'poppins',
@@ -146,7 +156,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 18),
                         elevation: 0,
-                        primary: AppColor.primary,
+                        primary: Colors.teal[400],
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
