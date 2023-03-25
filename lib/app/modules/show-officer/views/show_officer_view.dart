@@ -17,6 +17,7 @@ class ShowOfficerView extends GetView<ShowOfficerController> {
       appBar: AppBar(
         title: Text(
           'Officer Details',
+
           style: TextStyle(
             color: AppColor.secondary,
             fontSize: 14,
