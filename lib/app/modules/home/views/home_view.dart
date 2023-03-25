@@ -86,7 +86,6 @@ class HomeView extends GetView<HomeController> {
                     StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
                         stream: controller.streamTodayPresence(),
                         builder: (context, snapshot) {
-                          // #TODO: make skeleton
                           switch (snapshot.connectionState) {
                             case ConnectionState.waiting:
                               return Center(child: CircularProgressIndicator());
@@ -133,7 +132,7 @@ class HomeView extends GetView<HomeController> {
                                   Container(
                                     margin: EdgeInsets.only(bottom: 6),
                                     child: Text(
-                                      'Distance from office',
+                                      'Distance from Posting',
                                       style: TextStyle(fontSize: 10),
                                     ),
                                   ),
