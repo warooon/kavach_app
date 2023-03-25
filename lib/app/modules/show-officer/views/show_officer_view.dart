@@ -1,20 +1,22 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
+import 'package:kavachApp/app/modules/show-officer/controllers/show_officer_controller.dart';
 import 'package:kavachApp/app/style/app_color.dart';
-
+import 'package:kavachApp/app/widgets/officer_list_tile.dart';
+import 'package:kavachApp/app/widgets/presence_tile.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import '../controllers/show_officer_controller.dart';
 
 class ShowOfficerView extends GetView<ShowOfficerController> {
-  final Map<String, dynamic> presenceData = Get.arguments;
+  Map<String, dynamic> user = {};
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Presence Details',
+          'Officer Details',
           style: TextStyle(
             color: AppColor.secondary,
             fontSize: 14,
@@ -36,171 +38,36 @@ class ShowOfficerView extends GetView<ShowOfficerController> {
           ),
         ),
       ),
-      body: ListView(
-        shrinkWrap: true,
-        padding: EdgeInsets.all(20),
-        physics: BouncingScrollPhysics(),
-        children: [
-          // check in ============================================
-          Container(
-            width: MediaQuery.of(context).size.width,
-            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-            decoration: BoxDecoration(
-              color: AppColor.primary,
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: AppColor.secondaryExtraSoft, width: 1),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'check in',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          (presenceData["checkInData"] == null)
-                              ? "-"
-                              : "${DateFormat.jm().format(DateTime.parse(presenceData["checkInData"]["date"]))}",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ],
-                    ),
-                    //presence date
-                    Text(
-                      "${DateFormat.yMMMMEEEEd().format(DateTime.parse(presenceData["date"]))}",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 14),
-                Text(
-                  'status',
-                  style: TextStyle(color: Colors.white),
-                ),
-                SizedBox(height: 4),
-                Text(
-                  (presenceData["checkInData"]?["in_area"] == true)
-                      ? "In area presence"
-                      : "Outside area presence",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600),
-                ),
-                SizedBox(height: 14),
-                Text(
-                  'address',
-                  style: TextStyle(color: Colors.white),
-                ),
-                SizedBox(height: 4),
-                Text(
-                  (presenceData["checkInData"] == null)
-                      ? "-"
-                      : "${presenceData["checkInData"]["address"]}",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    height: 150 / 100,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 24),
-          // check out ===========================================
-          Container(
-            width: MediaQuery.of(context).size.width,
-            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: AppColor.secondaryExtraSoft, width: 1),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'check out',
-                          style: TextStyle(color: AppColor.secondary),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          (presenceData["checkOutData"] == null)
-                              ? "-"
-                              : "${DateFormat.jm().format(DateTime.parse(presenceData["checkOutData"]["date"]))}",
-                          style: TextStyle(
-                              color: AppColor.secondary,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ],
-                    ),
-                    //presence date
-                    Text(
-                      "${DateFormat.yMMMMEEEEd().format(DateTime.parse(presenceData["date"]))}",
-                      style: TextStyle(color: AppColor.secondary),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 14),
-                Text(
-                  'status',
-                  style: TextStyle(color: AppColor.secondary),
-                ),
-                SizedBox(height: 4),
-                Text(
-                  (presenceData["checkOutData"]?["in_area"] == true)
-                      ? "In area presence"
-                      : "Outside area presence",
-                  style: TextStyle(
-                      color: AppColor.secondary,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600),
-                ),
-                SizedBox(height: 14),
-                Text(
-                  'address',
-                  style: TextStyle(color: AppColor.secondary),
-                ),
-                SizedBox(height: 4),
-                Text(
-                  (presenceData["checkOutData"] == null)
-                      ? "-"
-                      : "${presenceData["checkOutData"]["address"]}",
-                  style: TextStyle(
-                    color: AppColor.secondary,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    height: 150 / 100,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+      body: GetBuilder<ShowOfficerController>(
+        builder: (con) {
+          return FutureBuilder<QuerySnapshot<Map<String, dynamic>>>(
+              future: controller.getOfficerData(),
+              builder: (context, snapshot) {
+                switch (snapshot.connectionState) {
+                  case ConnectionState.active:
+                    return Center(child: CircularProgressIndicator());
+                  case ConnectionState.active:
+                  case ConnectionState.done:
+                    var data = snapshot.data!.docs;
+                    return ListView.separated(
+                      itemCount: data.length,
+                      shrinkWrap: true,
+                      physics: BouncingScrollPhysics(),
+                      padding: EdgeInsets.all(20),
+                      separatorBuilder: (context, index) =>
+                          SizedBox(height: 16),
+                      itemBuilder: (context, index) {
+                        var presenceData = data[index].data();
+                        return OfficerListTile(
+                          officerData: presenceData,
+                        );
+                      },
+                    );
+                  default:
+                    return SizedBox();
+                }
+              });
+        },
       ),
     );
   }

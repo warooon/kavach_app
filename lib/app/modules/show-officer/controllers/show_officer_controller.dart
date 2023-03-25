@@ -1,18 +1,21 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ShowOfficerController extends GetxController {
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  FirebaseAuth auth = FirebaseAuth.instance;
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  Stream<DocumentSnapshot<Map<String, dynamic>>> ShowUser() async* {
+    String uid = auth.currentUser!.uid;
+    yield* firestore.collection("employee").doc(uid).snapshots();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
+  Future<QuerySnapshot<Map<String, dynamic>>> getOfficerData() async {
+    QuerySnapshot<Map<String, dynamic>> query =
+        await firestore.collection("employee").get();
 
-  @override
-  void onClose() {}
-  void increment() => count.value++;
+    return query;
+  }
 }

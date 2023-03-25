@@ -86,7 +86,6 @@ class HomeView extends GetView<HomeController> {
                     StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
                         stream: controller.streamTodayPresence(),
                         builder: (context, snapshot) {
-                          // #TODO: make skeleton
                           switch (snapshot.connectionState) {
                             case ConnectionState.waiting:
                               return Center(child: CircularProgressIndicator());
